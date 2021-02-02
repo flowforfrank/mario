@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    user-select: none;
+}
+
+#mario {
+    background: #000;
+    width: 640px;
+    height: 480px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+label {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.score {
+    position: absolute;
+    font-size: 21px;
+    top: 10px;
+    left: 10px;
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 21px;
+    color: #FFF;
+    display: none;
+
+    &.visible {
+        display: block;
+    }
+}
