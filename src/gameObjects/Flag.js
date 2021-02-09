@@ -2,7 +2,7 @@ class Flag {
     constructor(scene) {
         const flagObject = scene.map.getObjectLayer('flag').objects[0];
         const flagCoordinates = scene.tileset.texCoordinates[962]; // 962 is the tile index in tiled for the flag
-        const flagRoot = scene.platform.getTileAt(75, 23) // Get the root of the flag with tile pos
+        const flagRoot = scene.platform.getTileAt(75, 23); // Get the root of the flag with tile pos
 
         this.scene = scene;
         this.sprite = scene.add.tileSprite(flagObject.x, flagObject.y, 16, 16, 'tiles')
@@ -24,15 +24,15 @@ class Flag {
                 alpha: .5
             });
 
-            scene.tweens.add({
-                targets: this.sprite,
-                ease: 'Linear',
-                y: '+=60',
-                duration: 800,
-                onComplete: () => emitter.stop()
-            });
+scene.tweens.add({
+    targets: this.sprite,
+    ease: 'Linear',
+    y: '+=60',
+    duration: 800,
+    onComplete: () => emitter.stop()
+});
 
-            this.scene.input.keyboard.shutdown();
+this.scene.input.keyboard.shutdown();
         });
     }
 }

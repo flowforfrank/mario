@@ -4,7 +4,7 @@
   <export target="../../../Work/mario/build/map.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" name="map-tileset" tilewidth="16" tileheight="16" spacing="1" margin="1" tilecount="5112" columns="36">
-  <image source="../../../Work/mario/build/tiles.png" width="613" height="2415"/>
+  <image source="img/tiles.png" width="613" height="2415"/>
  </tileset>
  <layer id="2" name="background" width="80" height="30" visible="0">
   <data encoding="base64">
