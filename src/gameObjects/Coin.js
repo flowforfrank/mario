@@ -33,9 +33,7 @@ class Coin {
     }
 
     collideWith(gameObject) {
-        for (const coin of this.coins.children.entries) {
-            coin.collider = this.scene.physics.add.overlap(coin, gameObject, this.collect, null, this);
-        }
+        this.scene.physics.add.overlap(this.coins, gameObject, this.collect, null, this);
 
         return this;
     }
@@ -46,19 +44,23 @@ class Coin {
         }
     }
 
-    collect(coin) {
-        this.scene.tweens.add({
-            targets: coin,
-            ease: 'Power1',
-            scaleX: 0,
-            scaleY: 0,
-            duration: 200,
-            onComplete: () => coin.destroy()
-        });
+    collect() {
+        for (const coin of this.coins.children.entries) {
+            if (!coin.body.touching.none) {
+                coin.body.setEnable(false);
+
+                this.scene.tweens.add({
+                    targets: coin,
+                    ease: 'Power1',
+                    scaleX: 0,
+                    scaleY: 0,
+                    duration: 200,
+                    onComplete: () => coin.destroy()
+                });
+            }
+        }
         
         increaseScore(1);
-
-        coin.collider.destroy();
     }
 }
 
